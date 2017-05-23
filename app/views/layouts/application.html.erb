@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hola</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= render partial: "shared/third_party/rollbar" %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body class='<%= body_classes %>'>
+    <%= yield %>
+  </body>
+</html>

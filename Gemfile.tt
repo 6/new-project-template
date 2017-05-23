@@ -1,0 +1,53 @@
+source 'https://rubygems.org'
+ruby '<%= RUBY_VERSION %>'
+
+gem 'rails'
+gem 'pg'
+gem 'puma'
+gem 'bootstrap-sass'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'redis'
+gem 'rollbar'
+gem 'rack-timeout'
+gem 'rake'
+gem 'recursive-open-struct'
+gem 'jbuilder'
+gem 'paper_trail'
+
+group :development, :test do
+  gem 'byebug'
+  gem 'binding_of_caller'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'rspec-collection_matchers'
+  gem 'factory_girl_rails'
+  gem 'rubocop'
+  gem 'guard'
+  gem 'guard-rubocop'
+  gem 'guard-rspec'
+  gem 'pry'
+  gem 'bundler-audit', require: false
+end
+
+group :development do
+  gem 'web-console'
+  gem 'listen'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen'
+  gem 'terminal-notifier'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'timecop'
+  gem 'database_cleaner'
+  gem 'rspec_junit_formatter'
+  gem 'rspec-prof'
+end
+
+group :production do
+  gem 'newrelic_rpm'
+end
