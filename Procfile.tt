@@ -1,1 +1,3 @@
 web: bundle exec puma -C config/puma.rb
+# Uncomment to enable:
+# sidekiq: bundle exec sidekiq -C config/sidekiq.yml

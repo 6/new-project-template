@@ -32,10 +32,41 @@ def apply_template
   copy_file 'spec/spec_helper.rb'
   copy_file 'spec/models/factory_girl_spec.rb'
 
-  environment 'config.force_ssl = true', env: 'production'
+  application do
+    <<-CONFIG
+redis_uri = URI.parse(Rails.application.secrets.redis_url)
+redis_config = {host: redis_uri.host, password: redis_uri.password, port: redis_uri.port}
 
-  route "resource :healthcheck, only: [:show]"
-  route "root to: 'landing_pages#show'"
+config.cache_store = :redis_store, redis_config.merge(namespace: 'cache')
+config.session_store :redis_store, servers: redis_config.merge(namespace: 'session'), expires_in: 1.day
+
+config.active_job.queue_adapter = :sidekiq
+    CONFIG
+  end
+
+  application(nil, env: 'test') do
+    <<-CONFIG
+config.cache_store = :null_store
+    CONFIG
+  end
+
+  application(nil, env: 'production') do
+    <<-CONFIG
+config.force_ssl = true
+    CONFIG
+  end
+
+  route <<-ROUTES
+require 'sidekiq/web'
+Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+  ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(Rails.application.secrets.sidekiq_username)) &
+    ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(Rails.application.secrets.sidekiq_password))
+end
+mount Sidekiq::Web, at: '/sidekiq'
+
+resource :healthcheck, only: [:show]
+root to: 'landing_pages#show'
+  ROUTES
 
   after_bundle do
     rails_command 'db:drop'
