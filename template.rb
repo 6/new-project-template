@@ -23,6 +23,7 @@ def apply_template
   copy_file 'app/views/shared/third_party/_rollbar.html.erb'
   copy_file 'config/newrelic.yml'
   copy_file 'config/puma.rb', force: true
+  copy_file 'config/sidekiq.yml'
   copy_file 'config/initializers/redis.rb'
   copy_file 'config/initializers/rollbar.rb'
   copy_file 'config/initializers/rack_timeout.rb'
