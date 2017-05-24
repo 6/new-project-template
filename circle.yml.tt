@@ -1,9 +1,6 @@
 machine:
   ruby:
     version: <%= RUBY_VERSION %>
-general:
-  artifacts:
-    - "coverage"
 dependencies:
   post:
     - bundle exec bundle-audit update && bundle exec bundle-audit check
