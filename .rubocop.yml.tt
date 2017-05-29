@@ -1,4 +1,5 @@
 AllCops:
+  DisabledByDefault: true
   DisplayCopNames: true
 
   Exclude:
@@ -11,54 +12,11 @@ AllCops:
     - 'db/**/*'
   TargetRubyVersion: <%= RUBOCOP_TARGET_RUBY_VERSION %>
 
-Bundler/OrderedGems:
-  Enabled: false
-
-Lint/IneffectiveAccessModifier:
-  Enabled: false
-
-Lint/UselessAccessModifier:
-  Enabled: false
-
-FrozenStringLiteralComment:
-  Enabled: false
-
-Metrics/AbcSize:
-  Enabled: false
-
-Metrics/BlockLength:
-  Enabled: false
-
-Metrics/ClassLength:
-  Enabled: false
-
-Metrics/MethodLength:
-  Enabled: false
-
-Metrics/LineLength:
-  Enabled: false
-  Max: 120
-
-Metrics/CyclomaticComplexity:
-  Enabled: false
-
-Metrics/PerceivedComplexity:
-  Enabled: false
-
-Metrics/ParameterLists:
-  Enabled: false
-
 Style/For:
   EnforcedStyle: each
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
-
-Style/ExtraSpacing:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
 
 Style/TrailingBlankLines:
   EnforcedStyle: final_newline
@@ -89,12 +47,6 @@ Style/CollectionMethods:
     detect: 'find'
     find_all: 'select'
 
-Style/SpaceBeforeFirstArg:
-  Enabled: false
-
-Style/ClassVars:
-  Enabled: false
-
 Style/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
@@ -112,33 +64,3 @@ Style/TrailingCommaInArguments:
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
-
-Style/StringLiterals:
-  Enabled: false
-
-Style/PercentLiteralDelimiters:
-  Enabled: false
-
-Style/SpaceInsideBrackets:
-  Enabled: false
-
-Style/SpaceInsideHashLiteralBraces:
-  Enabled: false
-
-Style/BracesAroundHashParameters:
-  Enabled: false
-
-Style/Lambda:
-  Enabled: false
-
-Style/SingleLineBlockParams:
-  Enabled: false
-
-Style/GuardClause:
-  Enabled: false
-
-Style/DoubleNegation:
-  Enabled: false
-
-Style/RegexpLiteral:
-  Enabled: false
