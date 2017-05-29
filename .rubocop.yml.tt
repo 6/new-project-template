@@ -10,28 +10,17 @@ AllCops:
     - 'tmp/**/*'
     - 'bin/**/*'
     - 'db/**/*'
+    
   TargetRubyVersion: <%= RUBOCOP_TARGET_RUBY_VERSION %>
 
-Style/For:
-  EnforcedStyle: each
+Layout/DotPosition:
+  EnforcedStyle: trailing
 
-Style/HashSyntax:
-  EnforcedStyle: ruby19
+Layout/IndentHash:
+  EnforcedStyle: consistent
 
-Style/TrailingBlankLines:
-  EnforcedStyle: final_newline
-
-Style/VariableName:
-  EnforcedStyle: snake_case
-
-Style/MethodDefParentheses:
-  EnforcedStyle: require_parentheses
-
-Style/Semicolon:
-  AllowAsExpressionSeparator: false
-
-Style/TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: comma
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
 
 Style/Alias:
   EnforcedStyle: prefer_alias_method
@@ -41,26 +30,38 @@ Style/AndOr:
 
 Style/CollectionMethods:
   PreferredMethods:
-    collect: 'map'
-    collect!: 'map!'
-    inject: 'reduce'
-    detect: 'find'
-    find_all: 'select'
+    collect: map
+    collect!: map!
+    inject: reduce
+    detect: find
+    find_all: select
 
-Style/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 
-Style/DotPosition:
-  EnforcedStyle: trailing
+Style/For:
+  EnforcedStyle: each
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
 
 Style/NumericPredicate:
   EnforcedStyle: comparison
 
-Style/IndentHash:
-  EnforcedStyle: consistent
+Style/Semicolon:
+  AllowAsExpressionSeparator: false
+
+Layout/TrailingBlankLines:
+  EnforcedStyle: final_newline
+
+Style/VariableName:
+  EnforcedStyle: snake_case
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
-Style/EmptyMethod:
-  EnforcedStyle: expanded
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
