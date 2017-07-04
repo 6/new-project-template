@@ -3,18 +3,16 @@ AllCops:
   DisplayCopNames: true
 
   Exclude:
-    - 'vendor/**/*'
-    - 'log/**/*'
-    - 'public/**/*'
-    - 'data/**/*'
-    - 'tmp/**/*'
-    - 'bin/**/*'
-    - 'db/**/*'
-    
-  TargetRubyVersion: <%= RUBOCOP_TARGET_RUBY_VERSION %>
+    - "bin/**/*"
+    - "data/**/*"
+    - "db/**/*"
+    - "log/**/*"
+    - "node_modules/**/*"
+    - "public/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
 
-Layout/DotPosition:
-  EnforcedStyle: trailing
+  TargetRubyVersion: <%= RUBOCOP_TARGET_RUBY_VERSION %>
 
 Layout/IndentHash:
   EnforcedStyle: consistent
@@ -22,11 +20,8 @@ Layout/IndentHash:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Style/Alias:
-  EnforcedStyle: prefer_alias_method
-
-Style/AndOr:
-  EnforcedStyle: conditionals
+Layout/TrailingBlankLines:
+  EnforcedStyle: final_newline
 
 Style/CollectionMethods:
   PreferredMethods:
@@ -48,20 +43,14 @@ Style/HashSyntax:
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
 
-Style/NumericPredicate:
-  EnforcedStyle: comparison
-
 Style/Semicolon:
   AllowAsExpressionSeparator: false
-
-Layout/TrailingBlankLines:
-  EnforcedStyle: final_newline
-
-Style/VariableName:
-  EnforcedStyle: snake_case
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
+
+Style/VariableName:
+  EnforcedStyle: snake_case
