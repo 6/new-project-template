@@ -16,6 +16,7 @@ gem 'jbuilder'
 gem 'paper_trail'
 gem 'sucker_punch'
 gem 'sidekiq'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug'
