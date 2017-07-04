@@ -1,6 +1,7 @@
 RUBY_VERSION = '2.3.4'
 # Rubycop only supports major versions (e.g. 2.3) not minor version (2.3.1).
 RUBOCOP_TARGET_RUBY_VERSION = RUBY_VERSION.split(".").first(2).join(".")
+NODE_VERSION = '7.1.0'
 
 def apply_template
   add_template_repository_to_source_path
