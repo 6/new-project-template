@@ -43,6 +43,21 @@ config.cache_store = :redis_store, redis_config.merge(namespace: 'cache')
 config.session_store :redis_store, servers: redis_config.merge(namespace: 'session'), expires_in: 1.day
 
 config.active_job.queue_adapter = :sidekiq
+
+if !Rails.env.test? && Rails.application.secrets.aws_s3_bucket.present?
+  config.paperclip_defaults = {
+    storage: :s3,
+    bucket: Rails.application.secrets.aws_s3_bucket,
+    s3_credentials: {
+      access_key_id: Rails.application.secrets.aws_access_key_id,
+      secret_access_key: Rails.application.secrets.aws_secret_access_key,
+    },
+    s3_region: Rails.application.secrets.aws_region,
+    s3_protocol: :https,
+    s3_permissions: :private,
+    preserve_files: 'true',
+  }
+end
     CONFIG
   end
 

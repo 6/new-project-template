@@ -17,6 +17,8 @@ gem 'paper_trail'
 gem 'sucker_punch'
 gem 'sidekiq'
 gem 'webpacker'
+gem 'aws-sdk'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug'

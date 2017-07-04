@@ -52,6 +52,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
+  config.after(:suite) do
+    FileUtils.rm_rf(Dir.glob("public/system/*"))
+  end
+
   # Print the 20 slowest examples and example groups at the
   # end of the spec run, to help surface which specs are running
   # particularly slow.
