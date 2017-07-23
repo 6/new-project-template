@@ -6,7 +6,7 @@ Rails 5 template based on http://guides.rubyonrails.org/rails_application_templa
 first, ensure that you're using the right ruby version:
 
 ```
-rbenv shell 2.3.4
+rbenv shell 2.4.1
 ```
 
 next, build the project:
