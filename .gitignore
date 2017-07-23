@@ -34,3 +34,9 @@ bower.json
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Webpacker
+/public/packs
+/node_modules
+
+.env

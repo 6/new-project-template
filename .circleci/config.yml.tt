@@ -22,19 +22,22 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - v1-bundle-{{ checksum "Gemfile.lock" }}
+          - v1-yarn-{{ checksum "yarn.lock" }}
 
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: yarn install --cache-folder  ~/.cache/yarn
 
       - save_cache:
           paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - vendor/bundle
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+          key: v1-yarn-{{ checksum "yarn.lock" }}
+
 
       # Lint and vulnerability checks
       - run: bundle exec bundle-audit update && bundle exec bundle-audit check
