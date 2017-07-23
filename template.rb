@@ -6,11 +6,11 @@ NODE_VERSION = '7.1.0'
 def apply_template
   add_template_repository_to_source_path
 
+  template '.circle/config.yml.tt'
   template '.ruby-version.tt'
   template '.rubocop.yml.tt'
   template 'Gemfile.tt', force: true
   template 'Guardfile.tt'
-  template 'circle.yml.tt'
   template 'config/secrets.yml.tt', force: true
 
   remove_file 'app/assets/stylesheets/application.css'
