@@ -12,5 +12,5 @@ rbenv shell 2.4.1
 next, build the project:
 
 ```
-rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-turbolinks --webpack=react
+rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-turbolinks
 ```
