@@ -6,7 +6,7 @@ NODE_VERSION = '7.1.0'
 def apply_template
   add_template_repository_to_source_path
 
-  template '.circle/config.yml.tt'
+  template '.circleci/config.yml.tt'
   template '.node-version.tt'
   template '.ruby-version.tt'
   template '.rubocop.yml.tt'
