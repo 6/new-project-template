@@ -97,6 +97,8 @@ root to: 'landing_pages#show'
     run 'DISABLE_SPRING=1 rails generate paper_trail:install'
     rails_command 'db:migrate'
 
+    run 'bundle exec rubocop --auto-correct'
+
     git :init
     git add: '.'
     git commit: %Q{ -m 'Initial commit' }
