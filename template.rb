@@ -6,36 +6,24 @@ NODE_VERSION = '7.1.0'
 def apply_template
   add_template_repository_to_source_path
 
-  template '.circleci/config.yml.tt'
   template '.node-version.tt'
   template '.ruby-version.tt'
   template '.rubocop.yml.tt'
   template 'Gemfile.tt', force: true
   template 'Guardfile.tt'
-  template 'config/secrets.yml.tt', force: true
 
-  remove_file 'app/assets/stylesheets/application.css'
-  copy_file 'app/assets/stylesheets/application.scss'
-  copy_file 'app/assets/stylesheets/pages/_landing-pages.scss'
-  copy_file 'app/controllers/healthchecks_controller.rb'
-  copy_file 'app/controllers/landing_pages_controller.rb'
-  copy_file 'app/helpers/application_helper.rb', force: true
-  copy_file 'app/views/landing_pages/show.html.erb'
-  copy_file 'app/views/layouts/application.html.erb', force: true
-  copy_file 'app/views/shared/third_party/_rollbar.html.erb'
-  copy_file 'config/newrelic.yml'
-  copy_file 'config/puma.rb', force: true
-  copy_file 'config/sidekiq.yml'
-  copy_file 'config/initializers/redis.rb'
-  copy_file 'config/initializers/rollbar.rb'
-  copy_file 'config/initializers/rack_timeout.rb'
   copy_file '.gitignore', force: true
   copy_file '.rspec'
   copy_file 'Procfile'
   copy_file 'Procfile.dev'
   copy_file 'server'
-  copy_file 'spec/spec_helper.rb'
-  copy_file 'spec/models/factory_girl_spec.rb'
+
+  remove_file 'app/assets/stylesheets/application.css'
+
+  directory '.circleci'
+  directory 'app', force: true
+  directory 'config', force: true
+  directory 'spec'
 
   application do
     <<-CONFIG
