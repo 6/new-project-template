@@ -22,4 +22,5 @@ rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-tu
 - Set ENV:
   - `APP_ENV`: production
   - `CANONICAL_HOST`: www.yoursite.com
-  - `ROLLBAR_ENABLED`: true
+  - `FORCE_SSL`: `false` if using Cloudflare Force SSL, `true` otherwise
+  - `ROLLBAR_ENABLED`: `true`

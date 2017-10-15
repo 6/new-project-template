@@ -70,6 +70,8 @@ config.action_mailer.default_url_options = { host: 'localhost' }
 
   application(nil, env: 'production') do
     <<-CONFIG
+config.force_ssl = ENV['FORCE_SSL'] == 'true'
+
 if Rails.application.secrets.sendgrid_username.present?
   config.action_mailer.default_url_options = { host: ENV['CANONICAL_HOST'] }
   config.action_mailer.delivery_method = :smtp
