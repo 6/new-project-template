@@ -14,6 +14,7 @@ def apply_template
 
   copy_file '.gitignore', force: true
   copy_file '.rspec'
+  copy_file 'config.ru', force: true
   copy_file 'Procfile'
   copy_file 'Procfile.dev'
   copy_file 'server'
