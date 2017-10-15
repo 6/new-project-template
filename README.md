@@ -14,3 +14,13 @@ next, build the project:
 ```
 rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-turbolinks --webpack=react
 ```
+
+### prod setup
+
+- Install postgres, newrelic, rollbar, papertrail
+- If needed: sendgrid, redis
+- Set ENV:
+  - `APP_ENV`: production
+  - `CANONICAL_HOST`: www.yoursite.com
+  - `ROLLBAR_ENABLED`: true
+  - `SECRET_KEY_BASE`: use `rake secret` to generate
