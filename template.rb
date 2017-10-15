@@ -28,6 +28,8 @@ def apply_template
 
   application do
     <<-CONFIG
+config.autoload_paths += Dir[ Rails.root.join('app/models/**/') ]
+
 redis_uri = URI.parse(Rails.application.secrets.redis_url)
 redis_config = {host: redis_uri.host, password: redis_uri.password, port: redis_uri.port}
 
