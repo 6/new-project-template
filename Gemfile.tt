@@ -21,6 +21,7 @@ gem 'aws-sdk'
 gem 'paperclip'
 gem 'webpacker'
 gem 'friendly_id'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug'
