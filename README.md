@@ -23,4 +23,3 @@ rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-tu
   - `APP_ENV`: production
   - `CANONICAL_HOST`: www.yoursite.com
   - `ROLLBAR_ENABLED`: true
-  - `SECRET_KEY_BASE`: use `rake secret` to generate
