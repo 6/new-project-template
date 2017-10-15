@@ -60,8 +60,6 @@ config.cache_store = :null_store
 
   application(nil, env: 'production') do
     <<-CONFIG
-config.force_ssl = true
-
 if Rails.application.secrets.sendgrid_username.present?
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
