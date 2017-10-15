@@ -52,15 +52,23 @@ end
     CONFIG
   end
 
+  application(nil, env: 'development') do
+    <<-CONFIG
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    CONFIG
+  end
+
   application(nil, env: 'test') do
     <<-CONFIG
 config.cache_store = :null_store
+config.action_mailer.default_url_options = { host: 'localhost' }
     CONFIG
   end
 
   application(nil, env: 'production') do
     <<-CONFIG
 if Rails.application.secrets.sendgrid_username.present?
+  config.action_mailer.default_url_options = { host: ENV['CANONICAL_HOST'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
