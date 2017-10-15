@@ -36,6 +36,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry'
   gem 'bundler-audit', require: false
+  gem 'poltergeist'
 end
 
 group :development do
