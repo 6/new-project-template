@@ -17,8 +17,8 @@ rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-tu
 
 ### prod setup
 
-- Install postgres, newrelic, rollbar, papertrail
-- If needed: sendgrid, redis
+- Install postgres, redis, newrelic, rollbar, papertrail
+- If needed: sendgrid
 - Set ENV:
   - `APP_ENV`: production
   - `CANONICAL_HOST`: www.yoursite.com

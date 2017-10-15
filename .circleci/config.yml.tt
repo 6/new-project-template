@@ -13,6 +13,11 @@ jobs:
           POSTGRES_DB: circle_ruby_test
           POSTGRES_USER: ubuntu
           POSTGRES_PASSWORD: ""
+      - image: bitnami/redis:3.2.9-r3
+        environment:
+          - ALLOW_EMPTY_PASSWORD=yes
+        ports:
+          - '6379:6379'
 
     working_directory: ~/repo
 
@@ -38,30 +43,7 @@ jobs:
             - ~/.cache/yarn
           key: v1-yarn-{{ checksum "yarn.lock" }}
 
-
-      # Lint and vulnerability checks
       - run: bundle exec bundle-audit update && bundle exec bundle-audit check
       - run: bundle exec rubocop
-
-      # Database setup
       - run: bundle exec rake db:create db:schema:load
-
-      # run tests!
-      - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
-            bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            "${TEST_FILES}"
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+      - run: bundle exec rspec
