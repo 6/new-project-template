@@ -1,4 +1,6 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "variables";
+@import "mixins";
 
 @import "pages/landing-pages";
