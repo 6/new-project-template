@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hola</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+    <meta property="og:site_name" content="<%= t(:site_name) %>">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= render partial: "shared/third_party/rollbar" %>
+    <%= render partial: "shared/third_party/google_tag_manager" %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body class='<%= body_classes %>'>
+    <%= flash_messages %>
     <%= yield %>
     <%= javascript_pack_tag "application" %>
   </body>

@@ -1,0 +1,5 @@
+en:
+  site_name: "My Site"
+  meta:
+    default_title: "Your default title"
+    default_description: "Your default description."
