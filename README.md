@@ -24,3 +24,8 @@ rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-tu
   - `CANONICAL_HOST`: www.yoursite.com
   - `FORCE_SSL`: `false` if using Cloudflare Force SSL, `true` otherwise
   - `ROLLBAR_ENABLED`: `true`
+
+### DNS
+
+- SSL: Select `SSL: Full` option
+- CNAME: For heroku, use `*.herokuapp.com` instead of provided `herokudns.com`. [See details](https://kb.heroku.com/why-am-i-getting-error-525-ssl-handshake-failed-with-cloudflare-when-using-a-herokudns-com-endpoint)
