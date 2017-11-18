@@ -27,6 +27,7 @@ def apply_template
   directory '.circleci'
   directory 'app', force: true
   directory 'config', force: true
+  directory 'public', force: true
   directory 'spec'
 
   application do
