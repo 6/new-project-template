@@ -3,6 +3,9 @@ RUBY_VERSION = '2.4.2'
 RUBOCOP_TARGET_RUBY_VERSION = RUBY_VERSION.split(".").first(2).join(".")
 NODE_VERSION = '7.1.0'
 
+require 'base64'
+require 'active_support/all'
+
 def apply_template
   add_template_repository_to_source_path
 
