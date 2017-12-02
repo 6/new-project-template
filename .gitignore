@@ -1,9 +1,8 @@
 *.rbc
 capybara-*.html
-/log
-/tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/public/assets
 /public/system
 /coverage/
 /spec/tmp
@@ -11,6 +10,12 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 .env
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 
 # Environment normalization:
 /.bundle
@@ -38,5 +43,12 @@ bower.json
 # Webpacker
 /public/packs
 /node_modules
+/yarn-error.log
 
 .env
+
+# Ignore uploaded files in development
+/storage/*
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
