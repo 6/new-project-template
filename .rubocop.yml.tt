@@ -1,8 +1,11 @@
+# See documentation for details on definitions:
+# https://rubocop.readthedocs.io
+
 AllCops:
-  DisabledByDefault: true
   DisplayCopNames: true
 
   Exclude:
+    - "*.gemspec"
     - "bin/**/*"
     - "data/**/*"
     - "db/**/*"
@@ -14,43 +17,120 @@ AllCops:
 
   TargetRubyVersion: <%= RUBOCOP_TARGET_RUBY_VERSION %>
 
+Layout/DotPosition:
+  Enabled: false
+
+Layout/ExtraSpacing:
+  Enabled: false
+
+Layout/IndentArray:
+  Enabled: false
+
 Layout/IndentHash:
-  EnforcedStyle: consistent
+  Enabled: false
 
 Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
+  Enabled: false
 
-Layout/TrailingBlankLines:
-  EnforcedStyle: final_newline
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
 
-Naming/VariableName:
-  EnforcedStyle: snake_case
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
 
-Style/CollectionMethods:
-  PreferredMethods:
-    collect: map
-    collect!: map!
-    inject: reduce
-    detect: find
-    find_all: select
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
 
-Style/EmptyMethod:
-  EnforcedStyle: expanded
+Lint/IneffectiveAccessModifier:
+  Enabled: false
 
-Style/For:
-  EnforcedStyle: each
+Lint/RescueWithoutErrorClass:
+  Enabled: false
 
-Style/HashSyntax:
-  EnforcedStyle: ruby19
+Metrics/AbcSize:
+  Enabled: false
 
-Style/MethodDefParentheses:
-  EnforcedStyle: require_parentheses
+Metrics/BlockLength:
+  Enabled: false
 
-Style/Semicolon:
-  AllowAsExpressionSeparator: false
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/Alias:
+  Enabled: false
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/CommentAnnotation:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/InverseMethods:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+# Allow use of both single and double quotes for strings.
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
 
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
+
+Style/WordArray:
+  Enabled: false

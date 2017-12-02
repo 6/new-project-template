@@ -9,8 +9,8 @@ require 'active_support/all'
 def apply_template
   add_template_repository_to_source_path
 
-  template '.node-version.tt'
-  template '.ruby-version.tt'
+  template '.node-version.tt', force: true
+  template '.ruby-version.tt', force: true
   template '.rubocop.yml.tt'
   template 'Gemfile.tt', force: true
   template 'Guardfile.tt'
@@ -92,18 +92,6 @@ if Rails.application.secrets.sendgrid_username.present?
 end
     CONFIG
   end
-
-  route <<-ROUTES
-require 'sidekiq/web'
-Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-  ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(Rails.application.secrets.sidekiq_username)) &
-    ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(Rails.application.secrets.sidekiq_password))
-end
-mount Sidekiq::Web, at: '/sidekiq'
-
-resource :healthcheck, only: [:show]
-root to: 'landing_pages#show'
-  ROUTES
 
   after_bundle do
     rails_command 'db:drop'
