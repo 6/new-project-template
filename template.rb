@@ -9,8 +9,8 @@ require 'active_support/all'
 def apply_template
   add_template_repository_to_source_path
 
-  template '.node-version.tt'
-  template '.ruby-version.tt'
+  template '.node-version.tt', force: true
+  template '.ruby-version.tt', force: true
   template '.rubocop.yml.tt'
   template 'Gemfile.tt', force: true
   template 'Guardfile.tt'
