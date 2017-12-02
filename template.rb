@@ -93,18 +93,6 @@ end
     CONFIG
   end
 
-  route <<-ROUTES
-require 'sidekiq/web'
-Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-  ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(Rails.application.secrets.sidekiq_username)) &
-    ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(Rails.application.secrets.sidekiq_password))
-end
-mount Sidekiq::Web, at: '/sidekiq'
-
-resource :healthcheck, only: [:show]
-root to: 'landing_pages#show'
-  ROUTES
-
   after_bundle do
     rails_command 'db:drop'
     rails_command 'db:create'
