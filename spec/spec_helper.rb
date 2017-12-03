@@ -73,3 +73,12 @@ def response_json
     json.with_indifferent_access
   end
 end
+
+# Create helper methods for making JSON requests (rather than form encoded).
+%w[get post put delete].each do |http_method|
+  define_method("json_#{http_method}") do |action, params: {}|
+    @request.headers["Accept"] = "application/json"
+    @request.headers["Content-Type"] = "application/json"
+    send(http_method, action, params: params)
+  end
+end
