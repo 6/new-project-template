@@ -42,4 +42,6 @@ jobs:
       - run: bundle exec bundle-audit update && bundle exec bundle-audit check
       - run: bundle exec rubocop
       - run: bundle exec rake db:create db:schema:load
-      - run: bundle exec rspec
+      - run: bundle exec rspec --format documentation --format RspecJunitFormatter -o ~/rspec/rspec.xml
+      - store_test_results:
+          path: ~/rspec
