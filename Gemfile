@@ -8,5 +8,6 @@ group :development, :test do
   gem 'rspec-its'
   gem 'rspec-collection_matchers'
   gem 'pry'
+  gem 'rubocop'
   gem 'rspec_junit_formatter'
 end
