@@ -15,7 +15,7 @@ jobs:
           POSTGRES_PASSWORD: ""
       - image: redis:3.2-alpine
 
-    working_directory: ~/repo
+    working_directory: ~/
 
     steps:
       - checkout
