@@ -9,7 +9,7 @@ require 'active_support/all'
 def apply_template
   add_template_repository_to_source_path
 
-  template '.node-version.tt', force: true
+  template '.node-version.tt', force: true unless api_only?
   template '.ruby-version.tt', force: true
   template '.rubocop.yml.tt'
   template 'Gemfile.tt', force: true
@@ -19,8 +19,10 @@ def apply_template
   copy_file '.rspec'
   copy_file 'config.ru', force: true
   copy_file 'Procfile'
-  copy_file 'Procfile.dev'
-  copy_file 'server'
+  unless api_only?
+    copy_file 'Procfile.dev'
+    copy_file 'server'
+  end
 
   remove_file 'app/assets/stylesheets/application.css'
 
@@ -106,6 +108,10 @@ end
     git add: '.'
     git commit: %Q{ -m 'Initial commit' }
   end
+end
+
+def api_only?
+  ARGV.include?("--api")
 end
 
 # Add this template directory to source_paths so that Thor actions like
