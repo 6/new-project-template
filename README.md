@@ -15,6 +15,11 @@ next, build the project:
 rails new myapp -m ~/new-project-template/template.rb -d postgresql -T --skip-turbolinks --webpack=react
 ```
 
+you can optionally specify the following flags:
+
+- `--api`: if you are building an API-only service
+- `--skip-action-cable`, `--skip-action-mailer`: if you don't need certain functionality
+
 ### prod setup
 
 - Install postgres, redis, newrelic, rollbar, papertrail
