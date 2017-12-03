@@ -11,10 +11,10 @@ class HealthchecksController < ApplicationController
   private
 
   def database_time
-    DateTime.parse(ActiveRecord::Base.connection.execute('select now()').first['now'])
+    Time.parse(ActiveRecord::Base.connection.execute('select now()').first['now'])
   end
 
   def server_time
-    DateTime.now
+    Time.now
   end
 end

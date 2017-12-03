@@ -41,6 +41,9 @@ Layout/SpaceBeforeFirstArg:
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
+Lint/AssignmentInCondition:
+  Enabled: false
+
 Lint/IneffectiveAccessModifier:
   Enabled: false
 
@@ -102,6 +105,9 @@ Style/FormatString:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalVars:
   Enabled: false
 
 Style/GuardClause:
