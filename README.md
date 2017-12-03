@@ -1,4 +1,5 @@
-# new-project-template
+# new-project-template [![CircleCI](https://circleci.com/gh/6/new-project-template.svg?style=svg)](https://circleci.com/gh/6/new-project-template)
+
 Rails 5 template based on http://guides.rubyonrails.org/rails_application_templates.html
 
 ### usage
