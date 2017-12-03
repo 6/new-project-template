@@ -43,7 +43,9 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'pry'
   gem 'bundler-audit', require: false
-  gem 'poltergeist'
+  <% unless api_only? %>
+    gem 'poltergeist'
+  <% end %>
 end
 
 group :development do
