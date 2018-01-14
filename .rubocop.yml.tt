@@ -47,9 +47,6 @@ Lint/AssignmentInCondition:
 Lint/IneffectiveAccessModifier:
   Enabled: false
 
-Lint/RescueWithoutErrorClass:
-  Enabled: false
-
 Lint/UnusedMethodArgument:
   Enabled: false
 
@@ -126,6 +123,9 @@ Style/NumericPredicate:
   Enabled: false
 
 Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/RescueStandardError:
   Enabled: false
 
 # Allow use of both single and double quotes for strings.
