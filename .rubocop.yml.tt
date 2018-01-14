@@ -20,6 +20,9 @@ AllCops:
 Layout/DotPosition:
   Enabled: false
 
+Layout/ElseAlignment:
+  Enabled: false
+
 Layout/ExtraSpacing:
   Enabled: false
 
@@ -77,6 +80,9 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Enabled: false
 
+Naming/AccessorMethodName:
+  Enabled: false
+
 Style/Alias:
   Enabled: false
 
@@ -93,6 +99,9 @@ Style/ClassVars:
   Enabled: false
 
 Style/CommentAnnotation:
+  Enabled: false
+
+Style/ConditionalAssignment:
   Enabled: false
 
 Style/Documentation:
@@ -117,6 +126,9 @@ Style/InverseMethods:
   Enabled: false
 
 Style/Lambda:
+  Enabled: false
+
+Style/Next:
   Enabled: false
 
 Style/NumericPredicate:
