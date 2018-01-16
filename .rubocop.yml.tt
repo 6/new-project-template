@@ -20,7 +20,10 @@ AllCops:
 Layout/DotPosition:
   Enabled: false
 
-Layout/ElseAlignment:
+Layout/CaseIndentation:
+  Enabled: false
+
+Lint/EndAlignment:
   Enabled: false
 
 Layout/ExtraSpacing:
