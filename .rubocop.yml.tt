@@ -44,6 +44,9 @@ Layout/SpaceBeforeBlockBraces:
 Layout/SpaceBeforeFirstArg:
   Enabled: false
 
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
