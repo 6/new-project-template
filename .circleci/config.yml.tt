@@ -42,6 +42,11 @@ jobs:
       - run: bundle exec bundle-audit update && bundle exec bundle-audit check
       - run: bundle exec rubocop
       - run: bundle exec rake db:create db:schema:load
-      - run: bundle exec rspec --format documentation --format RspecJunitFormatter -o ~/rspec/rspec.xml
+      - run:
+          name: RSpec
+          # Note: the `--no-color` flag is needed since RspecJunitFormatter does
+          # not handle ANSI color codes correctly.
+          command: bundle exec rspec --format RspecJunitFormatter -o ~/rspec/rspec.xml --no-color
+
       - store_test_results:
           path: ~/rspec
