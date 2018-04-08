@@ -1,7 +1,7 @@
 RUBY_VERSION = '2.5.1'
 # Rubycop only supports major versions (e.g. 2.3) not minor version (2.3.1).
 RUBOCOP_TARGET_RUBY_VERSION = RUBY_VERSION.split(".").first(2).join(".")
-NODE_VERSION = '7.1.0'
+NODE_VERSION = '9.11.1'
 
 require 'base64'
 require 'active_support/all'
